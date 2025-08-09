@@ -14,7 +14,6 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from pystyle import Center
 
-# Terminal colors
 W = '\033[0m'
 R = '\x1b[38;5;196m'
 
@@ -27,40 +26,34 @@ def clear_screen():
 
 
 def banner():
+    
     print(Center.XCenter("""
 \n
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣔⣾⣿⣿⡇⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡾⣿⣿⣿⣿⣿⣿⣧⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⢿⣿⣾⣯⡶⠒⢾⡟⣿⡿⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⢀⣴⣿⡷⣻⣿⢷⡏⣴⢲⠀⣿⢸⡇⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠄⠒⠊⠉⠍⣉⣩⣭⣿⣿⡿⡿⠿⢾⣿⣿⣿⣗⢬⣥⣴⣿⣿⡇⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠴⠊⠁⠀⠀⢀⣤⣶⣾⠟⠛⠉⠁⠁⣀⡀⠀⠀⣀⠈⠙⠢⢿⣿⣿⣿⣿⠁⠀⠀
-\t⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣠⣔⣡⣤⣤⣤⣤⣶⡿⠋⢁⡠⠄⠒⠊⠉⠁⠀⠉⠙⠻⢿⣾⣷⣦⣤⣽⣿⣿⡿⠀⠀⠀
-\t⢀⣤⣶⡾⣿⣽⣿⠖⠒⠛⣻⣟⣿⣛⣿⣿⡿⢟⣡⡾⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣿⣯⣸⣿⠀⠀⠀
-\t⠸⣿⣿⣿⣿⣇⣿⠾⠋⠩⣿⡿⣿⣿⣿⢟⣵⠗⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣇⠀⠀
-\t⠀⠹⣿⣿⣿⢹⡏⢼⣛⠆⢸⡇⣿⡟⢡⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣷⣿⡀⠀
-\t⠀⠀⠈⢿⣿⣜⢾⣤⣤⣴⣿⣿⡿⠀⡔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣿⣿⣿⣿⡿⣇⠀
-\t⠀⠀⠀⠀⠙⣿⣷⣿⣿⣿⣿⣿⠁⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⣿⣿⣷⣮⣿⣿⣿⣸⠟⠀
-\t⠀⠀⠀⠀⠀⠈⠹⣿⡿⣿⣿⣧⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⢿⣗⠚⡿⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻⡀⣷⡀     LASTFM AUTO SCROBBLER
-\t⠀⠀⠀⠀⠀⠀⠀⢻⣿⣶⣧⣿⠀⠀⣠⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⡇⢳⢣         MADE BY 0XSH1N
-\t⠀⠀⠀⠀⠀⠀⠀⢹⣿⣯⡟⢻⣆⣼⣿⣿⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⠃⡞⢸
-\t⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⡏⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣾⠀⡇⣼
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣯⠁⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⢸⣯⣿⣿⣿⣿⣿⣷⣶⣿⣿⣹⠙⡟⢠⠃
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠛⢛⡻⣿⣿⣿⣿⣿⣿⣿⣟⢿⣿⣿⣿⣷⡄⣿⣿⣿⣿⡿⠋⢹⣿⣿⣫⢃⣴⠕⠃⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⣄⡀⠈⠉⠛⢿⣿⣿⣿⣿⣿⡷⣭⡻⣿⣿⣿⠈⠻⢿⣿⣧⣾⣿⡿⠗⠓⠛⠁⠀⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣧⡂⢀⡀⠀⠈⢝⡂⠀⠉⠻⣿⡛⣾⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢦⡈⠂⠀⠀⠉⠢⢄⠈⣸⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-\t⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⠢⠴⢦⣄⡠⠟⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣔⣾⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡾⣿⣿⣿⣿⣿⣿⣧⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⢿⣿⣾⣯⡶⠒⢾⡟⣿⡿⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⢀⣴⣿⡷⣻⣿⢷⡏⣴⢲⠀⣿⢸⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠄⠒⠊⠉⠍⣉⣩⣭⣿⣿⡿⡿⠿⢾⣿⣿⣿⣗⢬⣥⣴⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠴⠊⠁⠀⠀⢀⣤⣶⣾⠟⠛⠉⠁⠁⣀⡀⠀⠀⣀⠈⠙⠢⢿⣿⣿⣿⣿⠁⠀⠀
+⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣠⣔⣡⣤⣤⣤⣤⣶⡿⠋⢁⡠⠄⠒⠊⠉⠁⠀⠉⠙⠻⢿⣾⣷⣦⣤⣽⣿⣿⡿⠀⠀⠀
+⢀⣤⣶⡾⣿⣽⣿⠖⠒⠛⣻⣟⣿⣛⣿⣿⡿⢟⣡⡾⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣿⣯⣸⣿⠀⠀⠀
+⠸⣿⣿⣿⣿⣇⣿⠾⠋⠩⣿⡿⣿⣿⣿⢟⣵⠗⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣇⠀⠀
+⠀⠹⣿⣿⣿⢹⡏⢼⣛⠆⢸⡇⣿⡟⢡⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣷⣿⡀⠀
+⠀⠀⠈⢿⣿⣜⢾⣤⣤⣴⣿⣿⡿⠀⡔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣿⣿⣿⣿⡿⣇⠀
+⠀⠀⠀⠀⠙⣿⣷⣿⣿⣿⣿⣿⠁⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⣿⣿⣷⣮⣿⣿⣿⣸⠟⠀
+⠀⠀⠀⠀⠀⠈⠹⣿⡿⣿⣿⣧⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢿⣗⠚⡿⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻⡀⣷⡀     
+⠀⠀⠀⠀⠀⠀⠀⢻⣿⣶⣧⣿⠀⠀⣠⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⡇⢳⢣         
+⠀⠀⠀⠀⠀⠀⠀⢹⣿⣯⡟⢻⣆⣼⣿⣿⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⠃⡞⢸
+⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⡏⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣾⠀⡇⣼
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣯⠁⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⢸⣯⣿⣿⣿⣿⣿⣷⣶⣿⣿⣹⠙⡟⢠⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠛⢛⡻⣿⣿⣿⣿⣿⣿⣿⣟⢿⣿⣿⣿⣷⡄⣿⣿⣿⣿⡿⠋⢹⣿⣿⣫⢃⣴⠕⠃⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⣄⡀⠈⠉⠛⢿⣿⣿⣿⣿⣿⡷⣭⡻⣿⣿⣿⠈⠻⢿⣿⣧⣾⣿⡿⠗⠓⠛⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣧⡂⢀⡀⠀⠈⢝⡂⠀⠉⠻⣿⡛⣾⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢦⡈⠂⠀⠀⠉⠢⢄⠈⣸⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⠢⠴⢦⣄⡠⠟⠁⠀⠀⠀⠀⠀⠀⠀
 \n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-"""))
-    print(Center.XCenter("""
-LASTFM AUTO SCROBBLER
-MADE BY 124dev
-                         \n
-                         \n
-                         \n
 """))
 
 
@@ -82,28 +75,33 @@ def fetch_proxies():
 
 
 def authenticate_lastfm(api_key, api_secret, username, password, proxy=None):
-    """Authenticate to Last.fm with retries."""
-    session = requests.Session()
-    if proxy:
-        session.proxies = {"http": proxy, "https": proxy}
+    clear_screen()
+    banner()
+    print(f"  [{R}INFO{W}] Authenticating Last.fm...")
+    time.sleep(1)
+    if not all([api_key, api_secret, username, password]):
+        print(f"  [{R}ERROR{W}] Last.fm credentials are missing in config.json")
+        time.sleep(2)
+        return None
 
-    for attempt in range(3):
-        try:
-            return pylast.LastFMNetwork(
-                api_key=api_key,
-                api_secret=api_secret,
-                username=username,
-                password_hash=pylast.md5(password),
-            )
-        except NetworkError as e:
-            if "timed out" in str(e):
-                print(f"  [{R}ERROR{W}] attempt {attempt + 1}: timeout. Retrying with proxy {proxy}...")
-                time.sleep(2)
-            else:
-                raise
-    raise NetworkError(f"  [{R}ERROR{W}] Could not connect to Last.fm with proxy {proxy}")
-
-
+    try:
+        network = pylast.LastFMNetwork(
+            api_key=api_key,
+            api_secret=api_secret,
+            username=username,
+            password_hash=pylast.md5(password)
+        )
+        user = network.get_authenticated_user()
+        if not user:
+            print("Failed to authenticate with Last.fm.")
+            time.sleep(2)
+        print(f"  [{R}INFO{W}] Logged in to Last.fm as: {user.get_name()}")
+        time.sleep(1)
+        return network
+    except Exception as e:
+        print(f"  [{R}ERROR{W}] Last.fm login failed: {e}")
+        time.sleep(2)
+        return None
 # -------------------- Scrobbling --------------------
 
 def scrobble_track(network, track, artist, album, proxy):
@@ -185,6 +183,24 @@ def choose_song_list(network, proxies):
 
 
 # -------------------- Spotify Extraction --------------------
+def check_spotify_credentials(client_id, client_secret):
+    """Check if Spotify credentials are valid."""
+    print(f"  [{R}INFO{W}] Checking Spotify credentials...")
+    time.sleep(2)
+    if not all([client_id, client_secret]):
+        print(f"  [{R}ERROR{W}] Spotify credentials are missing in config.json")
+        time.sleep(2)
+        return None
+    try:
+        sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id, client_secret))
+        sp.search(q="test", limit=1) 
+        print(f"  [{R}INFO{W}] Spotify credentials are valid.")
+        time.sleep(2)
+        return True
+    except Exception as e:
+        print(f"  [{R}ERROR{W}] Invalid Spotify credentials: {e}")
+        time.sleep(2)
+        return False
 
 def extract_artist_songs(client_id, client_secret):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -193,7 +209,6 @@ def extract_artist_songs(client_id, client_secret):
     file_path = input(f"  [{R}INPUT{W}] please enter the file name to save songs: ")
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id=client_id, client_secret=client_secret))
     
-    # Search for the artist
     results = sp.search(q=f"artist:{artist_name}", type='artist', limit=1)
     if not results['artists']['items']:
         print(f"  [{R}ERROR{W}] artist not found.")
@@ -201,11 +216,10 @@ def extract_artist_songs(client_id, client_secret):
         return
     
     artist_id = results['artists']['items'][0]['id']
-    artist_name = results['artists']['items'][0]['name']  # Ensure proper casing
+    artist_name = results['artists']['items'][0]['name'] 
 
     print(f'  [{R}INFO{W}] fetching songs for {artist_name}, please wait...\n')
 
-    # Get all albums
     albums = []
     album_results = sp.artist_albums(artist_id=artist_id, album_type='album,single', limit=50)
     albums.extend(album_results['items'])
@@ -214,7 +228,7 @@ def extract_artist_songs(client_id, client_secret):
         album_results = sp.next(album_results)
         albums.extend(album_results['items'])
 
-    # Remove duplicates by album name
+
     seen_albums = set()
     unique_albums = [a for a in albums if not (a['name'] in seen_albums or seen_albums.add(a['name']))]
 
@@ -234,10 +248,10 @@ def extract_artist_songs(client_id, client_secret):
                 }
                 songs_list.append(song_data)
 
-                # Print in real-time
+
                 print(f"  [{R}SONG{W}] {track['name']}  |  Album: {album_name}")
 
-                # Write to file immediately
+         
                 file.write(f"Song: {track['name']} | Artist: {artist_name} | Album: {album_name}\n")
 
     print(f"\n  [{R}INFO{W}] extracted {len(songs_list)} songs saved to {save_path}")
@@ -287,23 +301,27 @@ def main():
     config = load_config()
 
     proxies = fetch_proxies()
+    
     network = authenticate_lastfm(
         config['API_KEY'],
         config['API_SECRET'],
         config['LASTFM_USERNAME'],
         config['LASTFM_PASSWORD']
     )
-
+    if not check_spotify_credentials(config['client_id'], config['client_secret']):
+        sys.exit(1)
     if not network:
-        print(f"  [{R}ERROR{W}] Login failed. Check credentials.")
-        return
-
+        sys.exit(1)
     while True:
         clear_screen()
+        user = network.get_authenticated_user()
         banner()
+        print(Center.XCenter(f"  {R}LAFM{W} - Last.fm Auto Scrobbler"))
+        print(Center.XCenter(f"  {R}Good day{W} {user.get_name()}"))
+        print(Center.XCenter(f"  Made by {R}124dev{W}"))
         print("      1. Scrobble from file")
         print("      2. Scrape Spotify")
-        print("      3. Exit")  # Added exit option
+        print("      3. Exit")
         choice = input(f"      [{R}INPUT{W}]: ")
 
         if choice == "1":
@@ -313,7 +331,7 @@ def main():
             banner()
             print("      1. Scrape artist songs")
             print("      2. Extract songs from playlist")
-            print("      3. Back to main menu")  # Added back option
+            print("      3. Back to main menu") 
             choice = input(f"      [{R}INPUT{W}]: ")
             if choice == "1":
                 extract_artist_songs(config['client_id'], config['client_secret'])
@@ -324,7 +342,7 @@ def main():
         elif choice == "3":
             print(f"      [{R}INFO{W}] Exiting program...")
             time.sleep(1)
-            sys.exit(0)  # Clean exit
+            sys.exit(0)
         else:
             print(f"      [{R}ERROR{W}] Invalid choice.")
             time.sleep(2)
