@@ -17,7 +17,7 @@ from pystyle import Center
 W = '\033[0m'
 R = '\x1b[38;5;196m'
 
-
+current_user = None
 # -------------------- Utility Functions --------------------
 
 def clear_screen():
@@ -55,6 +55,11 @@ def banner():
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⠢⠴⢦⣄⡠⠟⠁⠀⠀⠀⠀⠀⠀⠀
 \n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 """))
+    print(Center.XCenter(f"  {R}LAFM{W} - Last.fm Auto Scrobbler"))
+    if current_user:
+        print(Center.XCenter(f"  {R}Good day{W} {current_user}"))
+    
+    print(Center.XCenter(f"  Made by {R}124dev{W}"))
 
 
 def load_config():
@@ -314,11 +319,11 @@ def main():
         sys.exit(1)
     while True:
         clear_screen()
+        global current_user
         user = network.get_authenticated_user()
+        current_user = user.get_name()
         banner()
-        print(Center.XCenter(f"  {R}LAFM{W} - Last.fm Auto Scrobbler"))
-        print(Center.XCenter(f"  {R}Good day{W} {user.get_name()}"))
-        print(Center.XCenter(f"  Made by {R}124dev{W}"))
+        
         print("      1. Scrobble from file")
         print("      2. Scrape Spotify")
         print("      3. Exit")
